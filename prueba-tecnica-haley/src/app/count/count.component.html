@@ -1,0 +1,7 @@
+<input type="text" placeholder="write a sentence" [formControl]=inputSentence>
+<button (click)="countWords(inputSentence.value)">Count</button>
+
+
+<div *ngIf='words.getValue()'>
+  <span>Number of words: {{words | async}}</span>
+</div>

@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs'
 export class AppService {
   sortArray$ = new BehaviorSubject<number[]>([])
   unidimensionalArray$ = new BehaviorSubject<any[]>([])
+  wordsCount$ = new BehaviorSubject<number | null>(null)
 
   setSortArray (array: number[]):void {
     this.sortArray$.next(array)
@@ -14,5 +15,9 @@ export class AppService {
 
   setUnidimensionalArray (array: any[]) {
     this.unidimensionalArray$.next(array)
+  }
+
+  setWordsCount (words: number) {
+    this.wordsCount$.next(words)
   }
 }

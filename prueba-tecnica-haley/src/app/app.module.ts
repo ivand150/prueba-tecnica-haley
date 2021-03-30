@@ -5,13 +5,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { SortComponent } from './sort/sort.component'
-import { TransformComponent } from './transform/transform.component'
+import { TransformComponent } from './transform/transform.component';
+import { CountComponent } from './count/count.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     SortComponent,
-    TransformComponent
+    TransformComponent,
+    CountComponent
   ],
   imports: [
     BrowserModule,
