@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core'
-import { FormArray } from '@angular/forms'
+import { Component } from '@angular/core'
+import { FormControl } from '@angular/forms'
 import { AppService } from '../app.service'
 
 @Component({
@@ -7,19 +7,17 @@ import { AppService } from '../app.service'
   templateUrl: './sort.component.html',
   styleUrls: ['./sort.component.scss']
 })
-export class SortComponent implements OnInit {
+export class SortComponent {
   constructor (private appService: AppService) { }
 
-  numbers = new FormArray([])
+  inputNumbers = new FormControl([])
   sortedNumbers = this.appService.sortArray$
 
   descendentOrder (array: number[]): void {
     // eslint-disable-next-line no-debugger
     debugger
-    const sortedArray = [...array].sort().reverse()
+    const arrayOfDigits = Array.from(String(array), Number)
+    const sortedArray = [...arrayOfDigits].sort().reverse()
     this.appService.sortArray$.next(sortedArray)
-  }
-
-  ngOnInit (): void {
   }
 }

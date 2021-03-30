@@ -1,6 +1,9 @@
-<input type="number" formArrayName="numbers">
-<button onclick="descendentOrder(numbers.value)">Sort</button>
+<input type="number" placeholder="write the numbers here" [formControl]=inputNumbers>
+
+<button (click)="descendentOrder(inputNumbers.value)">Sort</button>
 Click the button to sort the numbrs in descendent order
-<div *ngFor="numbers of sortedNumbers | async">
-  <div>sorted array: {{numbers}}</div>
+
+<span>Sorted numbers:</span>
+<div *ngFor="let numbers of sortedNumbers | async">
+  <span> {{numbers}}</span>
 </div>
