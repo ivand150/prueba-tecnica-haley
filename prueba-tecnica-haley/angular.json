@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "prueba-tecnica-haley"
+  "defaultProject": "prueba-tecnica-haley",
+  "cli": {
+    "analytics": false
+  }
 }
