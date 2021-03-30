@@ -14,10 +14,8 @@ export class SortComponent {
   sortedNumbers = this.appService.sortArray$
 
   descendentOrder (array: number[]): void {
-    // eslint-disable-next-line no-debugger
-    debugger
     const arrayOfDigits = Array.from(String(array), Number)
     const sortedArray = [...arrayOfDigits].sort().reverse()
-    this.appService.sortArray$.next(sortedArray)
+    this.appService.setSortArray(sortedArray)
   }
 }

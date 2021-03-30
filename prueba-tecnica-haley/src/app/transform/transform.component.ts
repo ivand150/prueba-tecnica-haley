@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core'
+import { FormControl, FormGroup } from '@angular/forms'
+import { AppService } from '../app.service'
 
 @Component({
   selector: 'app-transform',
   templateUrl: './transform.component.html',
   styleUrls: ['./transform.component.scss']
 })
-export class TransformComponent implements OnInit {
+export class TransformComponent {
+  constructor (private appService: AppService) { }
 
-  constructor() { }
+  arrayOfArrays = new FormGroup({
+    firstArray: new FormControl(),
+    secondArray: new FormControl()
+  })
 
-  ngOnInit(): void {
+  array = this.appService.unidimensionalArray$
+
+  transformArray () {
+    const bigArray = [[this.arrayOfArrays.controls.firstArray.value], [this.arrayOfArrays.controls.secondArray.value]]
+    const uniDimensionalArray = bigArray.flat()
+    this.appService.setUnidimensionalArray(uniDimensionalArray)
   }
-
 }

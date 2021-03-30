@@ -3,7 +3,10 @@
 <button (click)="descendentOrder(inputNumbers.value)">Sort</button>
 Click the button to sort the numbrs in descendent order
 
-<span>Sorted numbers:</span>
-<div *ngFor="let numbers of sortedNumbers | async">
-  <span> {{numbers}}</span>
+
+<div *ngIf='sortedNumbers.getValue().length'>
+  <span>Sorted numbers:</span>
+  <div *ngFor="let numbers of sortedNumbers | async">
+    <span> {{numbers}}</span>
+  </div>
 </div>

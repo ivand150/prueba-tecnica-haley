@@ -6,12 +6,13 @@ import { BehaviorSubject } from 'rxjs'
 })
 export class AppService {
   sortArray$ = new BehaviorSubject<number[]>([])
-
-  getSortArray (): number[] {
-    return this.sortArray$.getValue()
-  }
+  unidimensionalArray$ = new BehaviorSubject<any[]>([])
 
   setSortArray (array: number[]):void {
     this.sortArray$.next(array)
+  }
+
+  setUnidimensionalArray (array: any[]) {
+    this.unidimensionalArray$.next(array)
   }
 }
