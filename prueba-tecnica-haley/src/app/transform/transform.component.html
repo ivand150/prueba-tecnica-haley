@@ -1,12 +1,14 @@
+<div class='formSection'>
+  <form [formGroup]='arrayOfArrays'>
 
-<form [formGroup]='arrayOfArrays'>
+    <input type="text" placeholder="write the first array" formControlName=firstArray>
+    <input type="text" placeholder="write the second array" formControlName=secondArray>
 
-  <input type="text" placeholder="write the first array" formControlName=firstArray>
-  <input type="text" placeholder="write the second array" formControlName=secondArray>
+    <button (click)="transformArray()">Transform</button>
+  <span>Click the button to unify the two arrays</span>
+  </form>
 
-  <button (click)="transformArray()">Transform</button>
-</form>
-
-<div *ngIf='array.getValue().length'>
-  <span>Array Transformed: [{{array | async}}]</span>
+  <div *ngIf='array.getValue().length'>
+    <span>Array Transformed: [{{array | async}}]</span>
+  </div>
 </div>

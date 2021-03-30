@@ -1,12 +1,16 @@
-<input type="number" placeholder="write the numbers here" [formControl]=inputNumbers>
+<div class='formSection'>
+  <input type="number" placeholder="write the numbers here" [formControl]=inputNumbers class='inputSort'>
 
-<button (click)="descendentOrder(inputNumbers.value)">Sort</button>
-Click the button to sort the numbrs in descendent order
+  <button (click)="descendentOrder(inputNumbers.value)" class='buttonSort'>Sort</button>
+  <span>Click the button to sort the numbrs in descendent order</span>
 
 
-<div *ngIf='sortedNumbers.getValue().length'>
-  <span>Sorted numbers:</span>
-  <div *ngFor="let numbers of sortedNumbers | async">
-    <span> {{numbers}}</span>
+  <div *ngIf='sortedNumbers.getValue().length'>
+    <span class='spanSort'>Sorted numbers:</span>
+    <div class='sortNumbers'>
+      <div *ngFor="let numbers of sortedNumbers | async">
+        <span> {{numbers}}</span>
+      </div>
+  </div>
   </div>
 </div>
