@@ -1,25 +1,34 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
-import { SortComponent } from './sort.component';
+import { SortComponent } from './sort.component'
 
 describe('SortComponent', () => {
-  let component: SortComponent;
-  let fixture: ComponentFixture<SortComponent>;
+  let component: SortComponent
+  let fixture: ComponentFixture<SortComponent>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SortComponent ]
+      declarations: [SortComponent],
+      imports: [ReactiveFormsModule, FormsModule]
     })
-    .compileComponents();
-  });
+      .compileComponents()
+  })
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SortComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(SortComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+
+  it('should call appService.setUnidimensionalArray', () => {
+    const spyFn = spyOn(component, 'descendentOrder').and.callThrough()
+    const compiled = fixture.nativeElement
+    compiled.querySelector('button').click()
+    expect(spyFn).toHaveBeenCalled()
+  })
+})
