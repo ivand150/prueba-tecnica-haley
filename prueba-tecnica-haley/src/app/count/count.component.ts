@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { FormControl } from '@angular/forms'
+import { FormControl, Validators } from '@angular/forms'
 import { AppService } from '../app.service'
 
 @Component({
@@ -10,7 +10,7 @@ import { AppService } from '../app.service'
 export class CountComponent {
   constructor (private appService: AppService) { }
 
-  inputSentence = new FormControl('')
+  inputSentence = new FormControl('', Validators.required)
   words = this.appService.wordsCount$
 
   countWords (sentence: string) {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { FormControl } from '@angular/forms'
+import { FormControl, Validators } from '@angular/forms'
 import { AppService } from '../app.service'
 
 @Component({
@@ -10,7 +10,7 @@ import { AppService } from '../app.service'
 export class SortComponent {
   constructor (private appService: AppService) { }
 
-  inputNumbers = new FormControl([])
+  inputNumbers = new FormControl([], Validators.required)
   sortedNumbers = this.appService.sortArray$
 
   descendentOrder (array: number[]): void {

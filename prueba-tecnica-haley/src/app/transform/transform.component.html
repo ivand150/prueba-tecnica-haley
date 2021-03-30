@@ -8,7 +8,7 @@
   <span>Click the button to unify the two arrays</span>
   </form>
 
-  <div *ngIf='array.getValue().length'>
+  <div *ngIf='array.getValue()[0] && array.getValue()[1]'>
     <span>Array Transformed: [{{array | async}}]</span>
   </div>
 </div>

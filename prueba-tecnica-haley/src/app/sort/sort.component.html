@@ -2,7 +2,7 @@
   <input type="number" placeholder="write the numbers here" [formControl]=inputNumbers class='inputSort'>
 
   <button (click)="descendentOrder(inputNumbers.value)" class='buttonSort'>Sort</button>
-  <span>Click the button to sort the numbrs in descendent order</span>
+  <span>Click the button to sort the numbers in descendent order</span>
 
 
   <div *ngIf='sortedNumbers.getValue().length'>
