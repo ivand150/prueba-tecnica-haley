@@ -13,9 +13,13 @@ export class SortComponent {
   inputNumbers = new FormControl([], Validators.required)
   sortedNumbers = this.appService.sortArray$
 
-  descendentOrder (array: number[]): void {
-    const arrayOfDigits = Array.from(String(array), Number)
-    const sortedArray = [...arrayOfDigits].sort().reverse()
-    this.appService.setSortArray(sortedArray)
+  descendentOrder (array: number[] | null): void {
+    if (!array) {
+      this.appService.setSortArray([])
+    } else {
+      const arrayOfDigits = Array.from(String(array), Number)
+      const sortedArray = [...arrayOfDigits].sort().reverse()
+      this.appService.setSortArray(sortedArray)
+    }
   }
 }

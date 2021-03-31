@@ -1,5 +1,5 @@
 <div class='formSection'>
-  <input type="number" placeholder="write the numbers here" [formControl]=inputNumbers class='inputSort'>
+  <input type="number" placeholder="write the numbers here" [formControl]=inputNumbers class='inputSort' required>
 
   <button (click)="descendentOrder(inputNumbers.value)" class='buttonSort'>Sort</button>
   <span>Click the button to sort the numbers in descendent order</span>
